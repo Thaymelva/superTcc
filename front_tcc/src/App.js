@@ -19,7 +19,6 @@ import Perfil from "./pages/Perfil/Perfil"
 import Tarefas from "./pages/Tarefas/Tarefas"
 
 function App() {
-<<<<<<< HEAD
     useEffect(() =>{
         api.get('usuarios').then(res=>{
           console.log(res);
@@ -45,29 +44,6 @@ function App() {
             </BrowserRouter>
         </div>
     );
-=======
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/redefinir" element={<Redefinir />} />
-          <Route path="/validacao" element={<Validacao />} />
-          <Route path="/validacao2" element={<Validacao2 />} />
-          <Route path="/validacao3" element={<Validacao3 />} />
-          <Route path="/desfazer" element={<Desfazer />} />
-          <Route path="/gerenciar" element={<Gerenciar />} />
-          <Route path="/gerenciarmemb" element={<GerenciarMemb />} />\
-          <Route path="/removermemb" element={<RemoverMemb />} />
-          <Route path="/criargrupo" element={<CriarGrupo />} />
-          <Route path="/perfil" element={<Perfil />} />
-          <Route path="/tarefas" element={<Tarefas/>}/>
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
->>>>>>> bdb5025fdb47443f070aaaedafa82f8fb19d0432
 }
 
 export default App;

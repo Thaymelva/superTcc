@@ -8,63 +8,51 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Logo from '../../img/logo.svg'
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import axios from 'axios';
-import { Menu, NativeSelect } from '@mui/material';
-import {getFunction} from "../../services/ApiService.js";
 
 
 const theme = createTheme();
 
 export default function SignIn() {
-  const initialFormData = ({
-    name: '',
-    email:'',
-    'smartphone-number': '',
-    password: '',
-    'confirm-password': '',
-    curso:'',
-    funcao:''
 
-  });
+  const [email, setEmail] = useState("");
+  const [celular, setCelular] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [curso, setCurso] = useState("");
+  const [funcao, setFuncao] = useState("");
 
-  const [formData, setFormData] = useState(initialFormData);
-  const [selectedType, setSelectedType] = useState('');
-  const[sucessMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    if (name === 'funcao') {
-      setSelectedType(value);
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try{
-
-      const response = await axios.post('http://localhost:3000/api/usuario', {
-      nome: formData.name,
-      email: formData.email,
-      celular: formData['smartphone-number'],
-      senha: formData.password,
-      curso: formData.curso, // Adicione os campos de curso e tipo de usuário aqui
-      tipoUsuario: selectedType
+    console.log('Campos backend:', {
+      name,
+      email,
+      celular,
+      password,
+      curso, 
+      funcao,
     });
+
+    try{
+      const response = await axios.post('http://localhost:3307/api/usuario', {
+        name,
+        email,
+        celular,
+        password,
+        curso, 
+        funcao,
+      });
+    
       console.log('Dados enviados para o backend:', response.data); 
-      setSuccessMessage('Usuário cadastrado com sucesso');
-      setErrorMessage('');
-      setFormData(initialFormData); 
 
     } catch (error){
       console.error('Erro ao cadastrar usuário:', error); 
-      setErrorMessage('Erro ao cadastrar usuário. Por favor, tente novamente.');
-      setSuccessMessage('');
+      
     }
   };
 
@@ -90,8 +78,8 @@ export default function SignIn() {
               label="Seu Nome"
               name="name"
               autoComplete="name"
-              value={formData.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               sx={{
                 '& label.Mui-focused': {
                   color: '#07382E',
@@ -114,8 +102,8 @@ export default function SignIn() {
                     label="E-Mail"
                     id="email"
                     autoComplete="email-password"
-                    value={formData.email}
-                    onChange={handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     sx={{
                         '& label.Mui-focused': {
                             color: '#07382E',
@@ -145,8 +133,8 @@ export default function SignIn() {
                     name="smartphone-number"
                     label="Numero do Celular"
                     id="smartphone-number"
-                    value={formData['smartphone-number']}
-                    onChange={handleChange}
+                    value={celular}
+                    onChange={(e) => setCelular(e.target.value)}
                     sx={{
                 '& label.Mui-focused': {
                     color: '#07382E',
@@ -170,8 +158,8 @@ export default function SignIn() {
                     label="Senha"
                     id="password"
                     autoComplete='current-password'
-                    value={formData.password}
-                    onChange={handleChange}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     sx={{
                 '& label.Mui-focused': {
                     color: '#07382E',
@@ -194,8 +182,6 @@ export default function SignIn() {
                     type='password'
                     id="confirm-password"
                     autoComplete='current-password'
-                    value={formData['confirm-password']}
-                    onChange={handleChange}
                     sx={{
                 '& label.Mui-focused': {
                     color: '#07382E',
@@ -210,6 +196,8 @@ export default function SignIn() {
                 },
               }}
             />
+            
+
 
                 <Select
                     labelId="cursos"
@@ -217,8 +205,8 @@ export default function SignIn() {
                     label="Selecione seu curso"
                     required
                     fullWidth
-                    value={formData.curso}
-                    onChange={handleChange}
+                    value={curso}
+                    onChange={(e) => setCurso(e.target.value)}
                     sx={{width: '100%' , mt: 2}}
                 >
                     <MenuItem value={'Desenvolvimento De Sistemas'}>Desenvolvimento De Sistemas</MenuItem>
@@ -235,8 +223,8 @@ export default function SignIn() {
                     label="Selecione sua função"
                     required
                     fullWidth
-                    value={formData.funcao}
-                    onChange={handleChange}
+                    value={funcao}
+                    onChange={(e) => setFuncao(e.target.value)}
                     sx={{width: '100%' , mt: 2}}
                 >
                     <MenuItem value={'LIDER'}>Lider do Grupo</MenuItem>
