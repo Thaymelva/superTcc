@@ -38,12 +38,12 @@ export default function ForgotPassword() {
             variant="square"
         />
         <Typography component="h1" variant="h5" sx={{ mt: -1, mb: 2, fontWeight: 'bold' }}>
-          Esqueci minha Senha
-        </Typography>
-        <Typography component="h2" variant="body1" sx={{ mt: 2, mb: 2 }}>
-          Informe o E-Mail ou Celular Cadastrado:
+          Redefinir
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Typography variant="subtitle1">
+          Codigo:
+        </Typography>
           <TextField
             margin="normal"
             required
@@ -67,16 +67,67 @@ export default function ForgotPassword() {
               
             }}
           />
-          <Typography variant="body2" sx={{ mt: 4, mb: 4 }}>
-            Para Sua Segurança Enviaremos Um Código Para Validar Sua Redefinição De Senha.
-          </Typography>
+
+        <Typography variant="subtitle1">
+          Nova Senha:
+        </Typography>
+        <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="nova-senha"
+            label="Nova Senha"
+            name="nova-senha"
+            autoComplete="new-password"
+            sx={{
+              '& label.Mui-focused': {
+                color: '#07382E',
+              },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#07382E',
+                },
+                '&:hover fieldset': {
+                  borderColor: '#07382E',
+                },
+              },
+              
+            }}
+          />
+
+        <Typography variant="subtitle1">
+          Confirmar nova senha:
+        </Typography>
+        <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="confirmar-senha"
+            label="Confirmar nova senha"
+            name="confirmar-senha"
+            autoComplete="confirm-new-password"
+            sx={{
+              '& label.Mui-focused': {
+                color: '#07382E',
+              },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#07382E',
+                },
+                '&:hover fieldset': {
+                  borderColor: '#07382E',
+                },
+              },
+              
+            }}
+          />
           <Button
             type="submit"
             fullWidth
             variant="outlined"
             sx={{ mt: 3, mb: 2, backgroundColor:"#fff", color: "#07382E", borderColor: '#07382E','&:hover': {borderColor: '#07382E',backgroundColor: 'transparent',}, }}
           >
-            SOLICITAR CÓDIGO
+            Redefinir
           </Button>
         </Box>
       </Box>

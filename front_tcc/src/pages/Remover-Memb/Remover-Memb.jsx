@@ -20,7 +20,6 @@ export default function Configuracoes() {
           REMOVER MEMBRO
         </Typography>
         <Box sx={{ width: '100%', mt: 3 }}>
-          <Divider />
             <Box sx={{ mt: 1, mb: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Avatar
                 alt="Avatar"

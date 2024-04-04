@@ -39,7 +39,7 @@ export default function SignIn() {
         password,
       };
 
-      const { data } = await api.post("/usuarios", dataLogin);
+      const { data } = await api.post("/login", dataLogin);
       toast.success(`Bem vindo, ${data.data} !`, {
         position: "top-right",
         autoClose: 5000,

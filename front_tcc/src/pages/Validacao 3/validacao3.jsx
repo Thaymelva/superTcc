@@ -30,7 +30,6 @@ export default function ForgotPassword() {
         }}
       >
         <IconButton onClick={handleBack} sx={{ alignSelf: 'flex-start' }}>
-          <ArrowBackIcon />
         </IconButton>
         <Avatar
             alt="Avatar"
@@ -41,7 +40,7 @@ export default function ForgotPassword() {
         <Typography component="h1" variant="h5" sx={{ mt: -1, mb: 2, fontWeight: 'bold', }}>
           Conta Validada
         </Typography>
-        <Typography component="h2" variant="body1" sx={{ mt: 2, mb: 2, color: "#07382E" }}>
+        <Typography component="h2" variant="body1" sx={{ mt: 2, mb: 2, color: "#07382E",  }}>
           Sua conta foi validada agora voce pode aproveitar todos os recursos do TCCERTO
         </Typography>
 

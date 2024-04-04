@@ -56,7 +56,7 @@ export default function Validation() {
             variant="square"
         />
         <Typography component="h1" variant="h5" sx={{ mt: -1, mb: 2, fontWeight: 'bold' }}>
-          Esqueci minha Senha
+          Validacao da conta
         </Typography>
         <Typography component="h2" variant="body1" sx={{ mt: 2 }}>
           Informe o E-Mail ou Celular Cadastrado:

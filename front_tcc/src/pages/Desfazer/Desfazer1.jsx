@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {Box,Button,Container,CssBaseline,TextField,Typography,IconButton,Paper
-} from '@mui/material';
+import {Box,Button,Container,CssBaseline,Typography,IconButton,Paper} from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GroupsIcon from '@mui/icons-material/Groups';
 
@@ -47,7 +46,7 @@ export default function ForgotPassword() {
           <Button
             type="submit"
             fullWidth
-            variant="contained"
+            variant="outlined"
             color='error'
           >
             DESFAZER GRUPO
