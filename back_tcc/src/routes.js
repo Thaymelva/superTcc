@@ -7,6 +7,7 @@ const cursosController = require('../src/controllers/cursosController.js');
 const gruposController = require('./controllers/gruposController.js');
 const membrosController = require('./controllers/membrosController.js');
 const mensagensController = require('./controllers/mensagensController.js');
+const tarefasController = require('./controllers/tarefasController.js/tarefasController.js')
 // const tarefasController = require('./controllers/tarefasController.js');
 
 const { inserir: inserirUsuario } = require('./services/UsuariosService.js');
@@ -49,10 +50,10 @@ router.post('/mensagem', mensagensController.inserir);
 router.put('/mensagem/:id', mensagensController.alterar);
 router.delete('/mensagem/:id', mensagensController.excluir);
 
-// router.get('/tarefas', tarefasController.buscarTodos);
-// router.get('/tarefas/:id', tarefasController.buscarUm);
-// router.post('/tarefa', tarefasController.inserir);
-// router.put('/tarefa/:id', tarefasController.alterar);
-// router.delete('/tarefa/:id', tarefasController.excluir);
+router.get('/tarefas', tarefasController.buscarTodos);
+router.get('/tarefas/:id', tarefasController.buscarUm);
+router.post('/tarefa', tarefasController.inserir);
+router.put('/tarefa/:id', tarefasController.alterar);
+router.delete('/tarefa/:id', tarefasController.excluir);
 
 module.exports = router;

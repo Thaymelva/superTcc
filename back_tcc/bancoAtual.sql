@@ -111,7 +111,10 @@ INSERT INTO tbl_mensagens (remetente_id, grupo_id, conteudo_mensagem)
 VALUES (1, 1, 'Olá, mundo! Esta é uma mensagem de exemplo.');
 
 
+insert into tbl_tarefas_agenda (usuario_id, grupo_id, titulo_tarefa, descricao_tarefa, data_limite)
+VALUES (1, 1, 'Programar', 'Temos que programar muitooo', 2024-05-02);
 
+select * from tbl_tarefas_agenda;
 
 
 
