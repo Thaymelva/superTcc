@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
@@ -7,12 +6,10 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Logo from '../../img/logo.svg'
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Menu, NativeSelect } from '@mui/material';
-import PostAddIcon from '@mui/icons-material/PostAdd';
+import PostAddIcon from '@mui/icons-material/PostAdd'
+;
 
 const theme = createTheme();
 
@@ -36,10 +33,9 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="name"
-              label="Seu Nome"
-              name="name"
-              autoComplete="email"
+              id="titulo"
+              label="Titulo"
+              name="titulo"
               sx={{
                 '& label.Mui-focused': {
                   color: '#07382E',
@@ -58,10 +54,9 @@ export default function SignIn() {
                     margin="normal"
                     required
                     fullWidth
-                    name="email"
-                    label="E-Mail"
-                    id="email"
-                    autoComplete="email-password"
+                    name="descricao"
+                    label="Descrição"
+                    id="descricao"
                     sx={{
                         '& label.Mui-focused': {
                             color: '#07382E',
@@ -93,25 +88,30 @@ export default function SignIn() {
                     required
                     sx={{width: '100%' , mt: 2}}
                 >
-                    <MenuItem value={10}>Alta prioridade</MenuItem>
-                    <MenuItem value={20}>Media prioridade</MenuItem>
-                    <MenuItem value={30}>Baixa prioridade</MenuItem>
+                    <MenuItem value={10}>Placeholder De Membro</MenuItem>
                 </Select>
-
-                <Select
-                    labelId="etapa"
-                    id="etapa"
-                    label="Etapa"
-                    required
-                    sx={{width: '100%' , mt: 2}}
-                >
-                    <MenuItem value={10}>Lider do Grupo</MenuItem>
-                    <MenuItem value={20}>Membro do grupo</MenuItem>
-                    <MenuItem value={30}>Orientador</MenuItem>
-                </Select>
-
             </Box>
-
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="date"
+              label="Date"
+              name="date"
+              sx={{
+                '& label.Mui-focused': {
+                  color: '#07382E',
+                },
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: '#07382E',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: '#07382E',
+                  },
+                },
+              }}
+            />
 
 
             <Grid container>

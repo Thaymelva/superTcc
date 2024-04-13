@@ -41,6 +41,7 @@ function App() {
                     <Route path="/gerenciarmemb" element={<GerenciarMemb />} />
                     <Route path="/removermemb" element={<RemoverMemb />} />
                     <Route path="/criargrupo" element={<CriarGrupo />} />
+                    <Route path="/tarefas" element={<Tarefas />} />
                 </Routes>
             </BrowserRouter>
         </div>
