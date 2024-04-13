@@ -52,7 +52,7 @@ export default function SignIn() {
         })
 
       sessionStorage.setItem("login", true);
-      sessionStorage.setItem("jwt", data.token);
+      sessionStorage.setItem("chave_secreta", data.token);
       navigate("/");
     } catch (err) {
       toast("Erro", {
