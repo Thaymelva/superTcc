@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRouter from "./protectedRouter";
 import api from './api.js';
 
-// Importe suas páginas aqui
 import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Redefinir from "./pages/Redefinir/Redefinir"
@@ -18,6 +17,16 @@ import RemoverMemb from "./pages/Remover-Memb/Remover-Memb"
 import CriarGrupo from "./pages/CriarGrupo/CriarGrupo"
 import Perfil from "./pages/Perfil/Perfil"
 import Tarefas from "./pages/Tarefas/Tarefas"
+
+
+
+//Testes
+import UUID from "./pages/Test/Uuid.jsx"
+
+
+
+
+
 
 function App() {
     useEffect(() =>{
@@ -43,6 +52,9 @@ function App() {
                     <Route path="/removermemb" element={<RemoverMemb />} />
                     <Route path="/criargrupo" element={<CriarGrupo />} />
                     <Route path="/tarefas" element={<Tarefas />} />
+
+
+                    <Route path="/uuid" element={<UUID />} />
                 </Routes>
             </BrowserRouter>
         </div>
