@@ -19,6 +19,16 @@ import CriarGrupo from "./pages/CriarGrupo/CriarGrupo"
 import Perfil from "./pages/Perfil/Perfil"
 import Tarefas from "./pages/Tarefas/Tarefas"
 
+
+
+//Testes
+import UUID from "./pages/Test/Uuid.jsx"
+
+
+
+
+
+
 function App() {
     useEffect(() =>{
         api.get('usuarios').then(res=>{
@@ -43,6 +53,9 @@ function App() {
                     <Route path="/removermemb" element={<RemoverMemb />} />
                     <Route path="/criargrupo" element={<CriarGrupo />} />
                     <Route path="/tarefas" element={<Tarefas />} />
+
+
+                    <Route path="/uuid" element={<UUID />} />
                 </Routes>
             </BrowserRouter>
         </div>
