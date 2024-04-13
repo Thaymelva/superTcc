@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRouter from "./protectedRouter";
 import api from './api.js';
 
-// Importe suas páginas aqui
 import Login from "./pages/Login/Login";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Redefinir from "./pages/Redefinir/Redefinir"
