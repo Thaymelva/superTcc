@@ -32,7 +32,7 @@ FOREIGN KEY (aluno_id) REFERENCES tbl_usuarios(id)
 CREATE TABLE tbl_grupos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome_grupo VARCHAR(30) NOT NULL,
-    codigo_convite VARCHAR(10) UNIQUE NOT NULL,
+    codigo_convite VARCHAR(36) UNIQUE NOT NULL,
     criador_id INT,
     FOREIGN KEY (criador_id) REFERENCES tbl_usuarios(id)
 );
@@ -112,9 +112,11 @@ VALUES (1, 1, 'Olá, mundo! Esta é uma mensagem de exemplo.');
 
 
 insert into tbl_tarefas_agenda (usuario_id, grupo_id, titulo_tarefa, descricao_tarefa, data_limite)
-VALUES (1, 1, 'Programar', 'Temos que programar muitooo', 2024-05-02);
+VALUES (1, 1, 'Programar', 'Temos que programar muitooo', '2024-05-02');
 
 select * from tbl_tarefas_agenda;
+
+select * from tbl_grupos
 
 
 
