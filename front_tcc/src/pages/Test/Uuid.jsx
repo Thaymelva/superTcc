@@ -34,7 +34,7 @@ export default function ForgotPassword() {
       const response = await axios.post('http://localhost:3000/api/grupo', {
         nome_grupo: nomeGrupo,
         codigo_convite,
-        criador_id: 3
+        criador_id: 3 //placeholdersafado
       });
   
       console.log('Dados enviados para o backend:', response.data); 
