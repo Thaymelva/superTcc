@@ -8,7 +8,9 @@ const gruposController = require('./controllers/gruposController.js');
 const membrosController = require('./controllers/membrosController.js');
 const mensagensController = require('./controllers/mensagensController.js');
 const tarefasController = require('./controllers/tarefasController.js/tarefasController.js')
+const userController = require('./controllers/userController.js')
 // const tarefasController = require('./controllers/tarefasController.js');
+
 
 const { inserir: inserirUsuario } = require('./services/UsuariosService.js');
 const { inserir: inserirTipo } = require('./services/TipoService.js');
@@ -17,6 +19,12 @@ const { inserir: inserirGrupo } = require('./services/GruposService.js');
 const { inserir: inserirMembro } = require('./services/MembrosService.js');
 const { inserir: inserirMensagem } = require('./services/MensagensService.js');
 // const { inserir: inserirTarefa } = require('./services/tarefasService.js');
+
+
+
+router.post('/validation', userController.handleLogin);
+router.get('/verify/:userEmail', userController.handleVerifyLogin);
+
 
 router.get('/usuarios', usuariosController.buscarTodos);
 router.get('/usuario/:id', usuariosController.buscarUm);

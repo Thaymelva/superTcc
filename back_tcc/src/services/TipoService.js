@@ -12,7 +12,7 @@ module.exports = {
             });
         });
     },
-    
+
     buscarUm: (id) => {
         return new Promise((aceito, rejeitado) => {
             db.query('SELECT * FROM tbl_tipo_usuario WHERE id = ?', [id], (error, results) => {
@@ -43,25 +43,24 @@ module.exports = {
                 });
         });
     },
-
     alterar: (id, usuario_id, tipos) => {
         return new Promise((aceito, rejeitado) => {
 
-            db.query('UPDATE tbl_tipo_usuario SET usuario_id = ?, tipos= ? WHERE id = ?', 
-            [usuario_id, tipos, id], 
-            (error, results) =>{
+            db.query('UPDATE tbl_tipo_usuario SET usuario_id = ?, tipos= ? WHERE id = ?',
+                [usuario_id, tipos, id],
+                (error, results) => {
 
-                if(error) {rejeitado(error); return;}
-                aceito(results);
+                    if (error) { rejeitado(error); return; }
+                    aceito(results);
 
-            });
+                });
         });
     },
 
-    excluir: (id) =>{
-        return new Promise ((aceito, rejeitado)=>{
-            db.query('DELETE FROM tbl_tipo_usuario WHERE id = ?',[id], (error, results) =>{
-                if(error) {rejeitado(error); return;}
+    excluir: (id) => {
+        return new Promise((aceito, rejeitado) => {
+            db.query('DELETE FROM tbl_tipo_usuario WHERE id = ?', [id], (error, results) => {
+                if (error) { rejeitado(error); return; }
                 aceito(results);
             });
         });
