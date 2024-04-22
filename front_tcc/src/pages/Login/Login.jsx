@@ -27,12 +27,14 @@ export default function SignIn() {
 
     try {
       const dataLogin = { email, password };
-      await api.post('/api/validation', dataLogin);
+      await api.post('/api/user/login', dataLogin);
       toast.success('Usuário logado com sucesso.');
       storeDataUser(dataLogin);
       navigation.navigate('Tabs');
+      navigation("/home");
     } catch (error) {
       toast.error(`Erro ao logar na conta do usuário. ${error}`);
+
     }
   };
 
