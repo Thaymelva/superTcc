@@ -1,33 +1,19 @@
-const db = require('../db.js');
+const database = require("../db");
+require("mysql2/promise");
 
-module.exports = {
-    handleLogin: (email, password) => {
-        return new Promise((resolve, reject) => {
-            db.query('INSERT INTO tbl_usuario (email, password) VALUES (?, ?)',
-                [email, password],
-                (error, results) => {
-                    if (error) {
-                        reject(error);
-                        return;
-                    }
-                    resolve(results);
-                }
-            )
-        })
-    },
+async function login(email, password) {
+  const sql = "SELECT * FROM tbl_usuarios WHERE email = ? AND senha = ?";
+  const dataLogin = [email, password];
 
-    handleVerifyLogin: async (req, res) => {
-        try {
-            const { userEmail } = req.params;
-            const verifyTest = await UsuariosService.handleVerifyLogin(userEmail);
+  try {
+    const connection = await database.connect();
+    const [rows] = await connection.promise().query(sql, dataLogin);
+    console.log("Linhas retornadas: ", rows);
+    connection.end();
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
 
-            if (verifyTest.length < 1) {
-                return res.status(200).send({ message: 'Email não cadastrado.' });
-            } else {
-                return res.status(401).send({ message: 'Email já cadastrado.' });
-            }
-        } catch (error) {
-            return res.status(500).send({ message: `Erro ao buscar os dados. ${error}` });
-        }
-    }
-};
+module.exports = { login };

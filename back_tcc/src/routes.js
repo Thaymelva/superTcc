@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const routes = express()
 
 const usuariosController = require('./controllers/usuariosController.js');
 const tipoController = require('../src/controllers/tipoController.js');
@@ -22,8 +23,7 @@ const { inserir: inserirMensagem } = require('./services/MensagensService.js');
 
 
 
-router.post('/validation', userController.handleLogin);
-router.get('/verify/:userEmail', userController.handleVerifyLogin);
+// router.get('/verify/:userEmail', userController.handleVerifyLogin);
 
 
 router.get('/usuarios', usuariosController.buscarTodos);
@@ -64,4 +64,7 @@ router.post('/tarefa', tarefasController.inserir);
 router.put('/tarefa/:id', tarefasController.alterar);
 router.delete('/tarefa/:id', tarefasController.excluir);
 
+routes.use("/user", userController)
+
 module.exports = router;
+module.exports = routes;
